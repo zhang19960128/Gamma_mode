@@ -27,8 +27,8 @@ while line:
 				eigve[mode_tick][3*i+j]=float(line[j]);
 		mode_tick=mode_tick+1;
 	line=file_dynmat.readline();
-tolerance=0.8
-zero_tolerance=0.01;
+tolerance=0.95
+zero_tolerance=0.007;
 for i in range(mode_num):
 	tick=1;
 	vector=eigve[i];
@@ -69,8 +69,6 @@ for i in range(mode_num):
 	for j in setting.oxygen3:
                 bench=setting.oxygen3[0];
 		for k in range(3):
-                        if(i==55):
-                            print str(vector[3*j+k])+" "+str(vector[bench*3+k])
 			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[bench*3+k])>zero_tolerance and (vector[3*j+k]/vector[bench*3+k]>tolerance and vector[3*j+k]/vector[bench*3+k] < 1/tolerance)):
 				tick=tick*1;
 			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[bench*3+k])<zero_tolerance):
