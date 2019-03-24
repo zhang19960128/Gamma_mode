@@ -1,4 +1,4 @@
-#!/home/jiahaoz/miniconda2/bin/python
+#!/usr/bin/python
 """
 Spyder Editor
 
@@ -29,7 +29,6 @@ while line:
 	line=file_dynmat.readline();
 tolerance=0.8
 zero_tolerance=0.01;
-print setting.oxygen1
 for i in range(mode_num):
 	tick=1;
 	vector=eigve[i];
@@ -52,26 +51,27 @@ for i in range(mode_num):
 	for j in setting.oxygen1:
 		bench=setting.oxygen1[0];
 		for k in range(3):
-			if(abs(vector[3*j+k]>zero_tolerance) and abs(vector[bench*3+k])>zero_tolerance and (vector[3*j+k]/vector[3*bench+k]>tolerance and vector[3*j+k]/vector[3*bench+k] < 1/tolerance)):
+			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[bench*3+k])>zero_tolerance and (vector[3*j+k]/vector[3*bench+k]>tolerance and vector[3*j+k]/vector[3*bench+k] < 1/tolerance)):
 				tick=tick*1;
 			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[3*bench+k])<zero_tolerance):
 				tick=tick*1;
 			else:
 				tick=tick*0;
-	print "mode: "+str(i+1)+" "+str(tick)
 	for j in setting.oxygen2:
+                bench=setting.oxygen2[0]
 		for k in range(3):
-			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[setting.oxygen2[0]+k])>zero_tolerance and (vector[3*j+k]/vector[setting.oxygen2[0]+k]>tolerance and vector[3*j+k]/vector[setting.oxygen2[0]+k] < 1/tolerance)):
+			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[bench*3+k])>zero_tolerance and (vector[3*j+k]/vector[bench*3+k]>tolerance and vector[3*j+k]/vector[bench*3+k] < 1/tolerance)):
 				tick=tick*1;
-			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[setting.oxygen2[0]+k])<zero_tolerance):
+			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[bench*3+k])<zero_tolerance):
 				tick=tick*1;
 			else:
 				tick=tick*0;
 	for j in setting.oxygen3:
+                bench=setting.oxygen3[0];
 		for k in range(3):
-			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[setting.oxygen3[0]+k])>zero_tolerance and (vector[3*j+k]/vector[setting.oxygen3[0]+k]>tolerance and vector[3*j+k]/vector[setting.oxygen3[0]+k] < 1/tolerance)):
+			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[bench*3+k])>zero_tolerance and (vector[3*j+k]/vector[bench*3+k]>tolerance and vector[3*j+k]/vector[bench*3+k] < 1/tolerance)):
 				tick=tick*1;
-			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[setting.oxygen3[0]+k])<zero_tolerance):
+			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[bench*3+k])<zero_tolerance):
 				tick=tick*1;
 			else:
 				tick=tick*0;
