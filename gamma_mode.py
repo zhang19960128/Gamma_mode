@@ -69,11 +69,16 @@ for i in range(mode_num):
 	for j in setting.oxygen3:
                 bench=setting.oxygen3[0];
 		for k in range(3):
+                        if(i==55):
+                            print str(vector[3*j+k])+" "+str(vector[bench*3+k])
 			if(abs(vector[3*j+k])>zero_tolerance and abs(vector[bench*3+k])>zero_tolerance and (vector[3*j+k]/vector[bench*3+k]>tolerance and vector[3*j+k]/vector[bench*3+k] < 1/tolerance)):
 				tick=tick*1;
 			elif(abs(vector[3*j+k])<zero_tolerance and abs(vector[bench*3+k])<zero_tolerance):
 				tick=tick*1;
 			else:
 				tick=tick*0;
-	if(tick==1):
+        if(tick==1):
 		print "I got one mode: "+str(i+1)
+print setting.oxygen1
+print setting.oxygen2
+print setting.oxygen3
